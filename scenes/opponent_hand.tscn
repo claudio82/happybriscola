@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqdoibvytok2t"]
+
+[ext_resource type="PackedScene" uid="uid://c81qq0e5ujvr4" path="res://scenes/hand.tscn" id="1_s8uup"]
+[ext_resource type="Script" uid="uid://crw5exc3au5b0" path="res://scripts/opponent_hand.gd" id="2_i4ww5"]
+
+[sub_resource type="Curve2D" id="Curve2D_s8uup"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 235, 501, -158.123, -98.0947, 158.123, 98.0947, 552, 499)
+}
+point_count = 2
+
+[node name="OpponentHand" groups=["players"] instance=ExtResource("1_s8uup")]
+script = ExtResource("2_i4ww5")
+
+[node name="DeckLocation" parent="." index="1"]
+position = Vector2(300, 100)

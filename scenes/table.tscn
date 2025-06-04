@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3togip0m04h"]
+
+[ext_resource type="Script" uid="uid://bssxprooyjakj" path="res://scripts/table.gd" id="1_02ppr"]
+
+[node name="Table" type="Node2D" groups=["cardholders"]]
+script = ExtResource("1_02ppr")
+
+[node name="Deck" type="Marker2D" parent="."]
+position = Vector2(79, 60)
+
+[node name="LeftPoint" type="Marker2D" parent="."]
+position = Vector2(137, 300)
+
+[node name="CardHolder" type="Node2D" parent="."]

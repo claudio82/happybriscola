@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c81qq0e5ujvr4"]
+
+[ext_resource type="Script" uid="uid://cgl7tpbgtxwu8" path="res://scripts/hand.gd" id="1_cmdsa"]
+
+[node name="Hand" type="Node2D" groups=["cardholders"]]
+script = ExtResource("1_cmdsa")
+is_player_hand = true
+
+[node name="DeckLocation" type="Marker2D" parent="."]
+position = Vector2(300, 500)
+
+[node name="CardHolder" type="Node2D" parent="."]

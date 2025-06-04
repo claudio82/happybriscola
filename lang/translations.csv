@@ -1,0 +1,9 @@
+keys,en,it
+WinMsg,YOU WIN !,HAI VINTO !
+LoseMsg,YOU LOSE !,HAI PERSO !
+DrawMsg,DRAW GAME,PATTA
+RestartMsg,- Left click to play again -,- Click sx per giocare -
+PlayerPointsLbl,player points: ,punti giocatore: 
+OpponentPointsLbl,opponent points: ,punti avversario: 
+ResumeOption,Resume,Riprendi
+QuitOption,Exit,Esci

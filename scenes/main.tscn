@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://chtmqxe81mhoa"]
+
+[ext_resource type="PackedScene" uid="uid://b55kp38bngwij" path="res://scenes/deck.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://c3kkn8s8lp8r0" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://oacbdccbe450" path="res://scripts/deck.gd" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c81qq0e5ujvr4" path="res://scenes/hand.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bqdoibvytok2t" path="res://scenes/opponent_hand.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d3togip0m04h" path="res://scenes/table.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://ct5h6ako0d343" path="res://scenes/play_match.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dc42ku1ku26i1" path="res://scenes/ui.tscn" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://copdrc36m4y3a" path="res://assets/textures/tiles.png" id="9_85g3d"]
+[ext_resource type="Shader" uid="uid://bq1xu2c6ff07j" path="res://scenes/main.gdshader" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://nxyph4kpaumk" path="res://scenes/ui/menus/pause_menu.tscn" id="11_ya4ey"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya4ey"]
+shader = ExtResource("9_choun")
+shader_parameter/tiling = Vector2(2, 2)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/moving = false
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
+
+[node name="CardController" type="Node" parent="."]
+
+[node name="Deck" parent="CardController" instance=ExtResource("1_0wfyh")]
+script = ExtResource("2_sugp2")
+
+[node name="PlayerHand" parent="CardController" groups=["players"] instance=ExtResource("4_jyhfs")]
+cardScale = Vector2(0.4, 0.4)
+
+[node name="OpponentHand" parent="CardController" instance=ExtResource("5_tbgi4")]
+is_player_hand = false
+
+[node name="Table" parent="CardController" instance=ExtResource("6_tefeu")]
+z_index = -1
+
+[node name="DeckPile" type="Node2D" parent="CardController"]
+position = Vector2(90, 300)
+
+[node name="PlayMatch" parent="CardController" instance=ExtResource("7_o6xl0")]
+
+[node name="UI" parent="." instance=ExtResource("8_tipki")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ya4ey")
+position = Vector2(399.5, 299.5)
+scale = Vector2(24.9688, 18.7188)
+texture = ExtResource("9_85g3d")
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" parent="CanvasLayer" instance=ExtResource("11_ya4ey")]
+visible = false

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct5h6ako0d343"]
+
+[ext_resource type="Script" uid="uid://xdrttjkdpjcv" path="res://scripts/play_match.gd" id="1_sgtf3"]
+[ext_resource type="AudioStream" uid="uid://u5g3gh14o7it" path="res://assets/sounds/flip.wav" id="2_v3poa"]
+
+[node name="PlayMatch" type="Node2D"]
+script = ExtResource("1_sgtf3")
+
+[node name="PlayerCardPosition" type="Node2D" parent="."]
+position = Vector2(400, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCardPosition"]
+
+[node name="OpponentCardPosition" type="Node2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentCardPosition"]
+
+[node name="FlipSnd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v3poa")
